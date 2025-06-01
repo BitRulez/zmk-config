@@ -154,17 +154,17 @@
         MOUSE {
             bindings = <
 &none   &none  &none  &none      &none      &none         &none           &none           &none            &none
-&none   &none  &none  &none      &none      &msc SCRL_UP  &mmv MOVE_LEFT  &mmv MOVE_UP    &mmv MOVE_RIGHT  &none
-&none   &none  &none  &none      &none      &none         &none           &msc SCRL_DOWN  &mkp MB4         &mmv MOVE_DOWN  &mkp MB5  &none
+&hms LSHFT A  &hm LCTRL S  &hm LALT D  &hm LGUI F      &none      &msc SCRL_UP  &mmv MOVE_LEFT  &mmv MOVE_UP    &mmv MOVE_RIGHT  &none
+&none   &none  &none  &none      &none      &none         &none           &msc SCRL_DOWN  &mkp MB4         &mmv MOVE_DOWN  &mkp MB5  &kp ESC
 &tog 4  &none  &none  &mkp LCLK  &mkp RCLK  &tog 4
             >;
         };
 
         BT {
             bindings = <
-&bt BT_CLR_ALL  &bt BT_CLR    &none         &none         &none         &none         &none           &none           &none            &none
-&none           &none         &none         &none         &none         &msc SCRL_UP  &mmv MOVE_LEFT  &mmv MOVE_UP    &mmv MOVE_RIGHT  &none
-&bt BT_SEL 0    &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4  &none         &none           &msc SCRL_DOWN  &mkp MB4         &mmv MOVE_DOWN  &mkp MB5  &kp A
+&bt BT_CLR_ALL  &bt BT_CLR    &none         &none         &none                                 &none         &none     &none           &none           &none
+&none           &none         &none         &none         &none                                 &none         &none     &none           &none           &none
+&bt BT_SEL 0    &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4  &none         &none     &none           &none           &none           &none           &none
 &tog 4          &none         &none         &mkp LCLK     &mkp RCLK     &tog 4
             >;
         };
