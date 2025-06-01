@@ -8,6 +8,7 @@
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/pointing.h>
+#include "mouse.dtsi"
 
 // Layers
 
@@ -15,7 +16,9 @@
 #define NUM_NAV 1
 #define SYMB 2
 #define ANDROID 3
-#define MOUSE 4
+#define BT 4
+#define MUSIC 5
+#define MOUSE 6
 
 / {
     behaviors {
@@ -84,6 +87,15 @@
             tapping-term-ms = <200>;
             flavor = "tap-preferred";
         };
+
+        mouse_hold_tap: mouse_hold_tap {
+            compatible = "zmk,behavior-hold-tap";
+            label = "MOUSE_HOLD_TAP";
+            bindings = <&none>, <&mkp>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+        };
     };
 
     combos {
@@ -100,8 +112,13 @@
         };
 
         BT {
-            bindings = <&tog 5>;
-            key-positions = <32 33 34>;
+            bindings = <&tog BT>;
+            key-positions = <1 2>;
+        };
+
+        LOCK {
+            bindings = <&kp LC(LG(Q))>;
+            key-positions = <8 9>;
         };
 
         CAPS_LOCK {
@@ -117,8 +134,8 @@
             bindings = <
 &q_esc ESC Q  &kp W        &kp E       &kp R        &kp T            &kp Y            &kp U         &kp I       &kp O        &kp P
 &hms LSHFT A  &hm LCTRL S  &hm LALT D  &hm LGUI F   &kp G            &kp H            &hm LGUI J    &hm LALT K  &hm RCTRL L  &hms RSHFT SEMI
-&kp Z         &kp X        &kp C       &kp V        &kp B            &bt BT_SEL 0     &bt BT_SEL 1  &kp N       &kp M        &kp COMMA        &kp DOT  &kp FSLH
-&tog 4        &kp TAB      &kp SPACE   &lt 3 ENTER  &lt 1 LG(LA(G))  &lt 2 BACKSPACE
+&kp Z         &kp X        &kp C       &kp V        &kp B            &bt BT_PRV         &kp A  &kp N       &kp M        &kp COMMA        &kp DOT  &kp FSLH
+&tog MOUSE        &kp TAB      &lt MUSIC SPACE   &lt ANDROID ENTER  &lt NUM_NAV LG(LA(G))  &lt SYMB BACKSPACE
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp DOWN UP>;
@@ -138,7 +155,7 @@
 &none          &kp N7   &kp N8   &kp N9  &none  &none  &kp AT      &kp HASH    &kp TILDE  &kp TILDE
 &none          &kp N4   &kp N5   &kp N6  &none  &none  &kp PLUS    &kp MINUS   &kp STAR   &kp PRCNT
 &kp BACKSLASH  &kp N1   &kp N2   &kp N3  &none  &none  &bt BT_PRV  &bt BT_NXT  &kp L      &kp COMMA  &kp DOT  &kp GRAVE
-&none          &kp RET  &kp RET  &none   &none  &none
+                &none          &trans  &trans  &none   &none  &none
             >;
         };
 
@@ -151,22 +168,32 @@
             >;
         };
 
-        MOUSE {
-            bindings = <
-&none   &none  &none  &none      &none      &none         &none           &none           &none            &none
-&hms LSHFT A  &hm LCTRL S  &hm LALT D  &hm LGUI F      &none      &msc SCRL_UP  &mmv MOVE_LEFT  &mmv MOVE_UP    &mmv MOVE_RIGHT  &none
-&none   &none  &none  &none      &none      &none         &none           &msc SCRL_DOWN  &mkp MB4         &mmv MOVE_DOWN  &mkp MB5  &kp ESC
-&tog 4  &none  &none  &mkp LCLK  &mkp RCLK  &tog 4
-            >;
-        };
-
         BT {
             bindings = <
 &bt BT_CLR_ALL  &bt BT_CLR    &none         &none         &none                                 &none         &none     &none           &none           &none
 &none           &none         &none         &none         &none                                 &none         &none     &none           &none           &none
-&bt BT_SEL 0    &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4  &none         &none     &none           &none           &none           &none           &none
-&tog 4          &none         &none         &mkp LCLK     &mkp RCLK     &tog 4
+&bt BT_SEL 0    &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4  &bt BT_PRV         &bt BT_NXT     &none           &none           &none           &none           &none
+&none          &none         &trans         &none     &none     &none
             >;
         };
+
+        MUSIC {
+            bindings = <
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans
+            >;
+        };
+
+        MOUSE {
+            bindings = <
+&none   &none  &none  &none      &kp LG(LS(NUMBER_4))      &none         &none           &none           &none            &none
+&hms LSHFT A  &hm LCTRL S  &hm LALT D  &hm LGUI F      &none      &msc SCRL_DOWN  &mkp MB4  &mmv MOVE_UP    &mkp MB5  &kp BACKSPACE
+&kp Z   &none  &none  &none      &none     &bt BT_PRV         &bt BT_NXT           &msc SCRL_UP  &mmv MOVE_LEFT         &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &kp ESC
+&tog MOUSE  &kp TAB  &trans  &mkp LCLK  &mouse_hold_tap 0 RCLK  &tog MOUSE
+            >;
+        };
+
     };
 };
