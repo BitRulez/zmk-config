@@ -1,0 +1,23 @@
+if SHIELD_GABBOARD_LEFT
+
+config ZMK_KEYBOARD_NAME
+    default "Gabboard Left"
+
+config ZMK_SPLIT_BLE_ROLE_CENTRAL
+    default y
+
+endif
+
+if SHIELD_GABBOARD_RIGHT
+
+config ZMK_KEYBOARD_NAME
+    default "Gabboard Right"
+
+endif
+
+if SHIELD_GABBOARD_LEFT || SHIELD_GABBOARD_RIGHT
+
+config ZMK_SPLIT
+    default y
+
+endif

@@ -1,0 +1,13 @@
+file_format: "1"
+id:  gabboard
+name:  gabboard
+type: shield
+url: https://github.com/BitRulez/zmk-config-gabboard
+requires: [pro_micro]
+exposes: [i2c_oled]
+features:
+  - keys
+  - display
+siblings:
+  -  gabboard_left
+  -  gabboard_right
