@@ -98,11 +98,6 @@
         };
     };
 
-    &mt {
-        require-prior-idle-ms = <125>;
-        flavor = "balanced";
-    };
-
     combos {
         compatible = "zmk,combos";
 
@@ -202,6 +197,3 @@
 
     };
 };
-
-
-f
