@@ -121,10 +121,10 @@
             key-positions = <8 9>;
         };
 
-        CAPS_LOCK {
+/*        CAPS_LOCK {
             bindings = <&kp CAPSLOCK>;
             key-positions = <10 19>;
-        };
+        };*/
     };
 
     keymap {
@@ -132,7 +132,7 @@
 
         default {
             bindings = <
-&q_esc ESC Q  &kp W        &kp E       &kp R        &kp T                                   &kp Y              &kp U         &kp I            &kp O        &kp P
+&q_esc ESC Q  &hms LSHFT A       &kp E       &kp R        &kp T                                   &kp Y              &kp U         &kp I            &kp O        &kp P
 &hms LSHFT A  &hm LCTRL S  &hm LALT D  &hm LGUI F   &kp G                                   &kp H              &hm LGUI J    &hm LALT K       &hm RCTRL L  &hms RSHFT SEMI
 &kp Z         &kp X        &kp C       &kp V        &kp B       &tog BT         &kp A       &kp N              &kp M         &kp COMMA        &kp DOT      &kp FSLH
                     &tog MOUSE        &kp TAB       &lt MUSIC SPACE                         &lt ANDROID ENTER  &lt NUM_NAV LG(LA(G))  &lt SYMB BACKSPACE
@@ -188,7 +188,7 @@
 
         MOUSE {
             bindings = <
-&none   &none  &none  &none      &kp LG(LS(NUMBER_4))      &none         &none           &none           &none            &none
+&none   &none  &none  &kp LG(LS(NUMBER_4))      &kp T      &none         &none           &none           &none            &none
 &hms LSHFT A  &hm LCTRL S  &hm LALT D  &hm LGUI F      &none      &msc SCRL_DOWN  &mkp MB4  &mmv MOVE_UP    &mkp MB5  &kp BACKSPACE
 &kp Z   &none  &none  &none      &none     &bt BT_PRV         &bt BT_NXT           &msc SCRL_UP  &mmv MOVE_LEFT         &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &kp ESC
 &tog MOUSE  &kp TAB  &trans  &mkp LCLK  &mouse_hold_tap 0 RCLK  &tog MOUSE
