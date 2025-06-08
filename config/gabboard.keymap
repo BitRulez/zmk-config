@@ -98,6 +98,11 @@
         };
     };
 
+    &mt {
+        require-prior-idle-ms = <125>;
+        flavor = "balanced";
+    };
+
     combos {
         compatible = "zmk,combos";
 
@@ -133,7 +138,7 @@
         default {
             bindings = <
 &q_esc ESC Q  &hms LSHFT A       &kp E       &kp R        &kp T                                   &kp Y              &kp U         &kp I            &kp O        &kp P
-&hms LSHFT A  &hm LCTRL S  &hm LALT D  &hm LGUI F   &kp G                                   &kp H              &hm LGUI J    &hm LALT K       &hm RCTRL L  &hms RSHFT SEMI
+&mt LSHIFT A &mt LCTL S &mt LALT D &mt LGUI F   &kp G                                   &kp H              &mt LGUI J    &mt LALT K       &mt RCTRL L  &mt RSHFT SEMI
 &kp Z         &kp X        &kp C       &kp V        &kp B       &tog BT         &kp A       &kp N              &kp M         &kp COMMA        &kp DOT      &kp FSLH
                     &tog MOUSE        &kp TAB       &lt MUSIC SPACE                         &lt ANDROID ENTER  &lt NUM_NAV LG(LA(G))  &lt SYMB BACKSPACE
             >;
@@ -197,3 +202,6 @@
 
     };
 };
+
+
+f
