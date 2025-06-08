@@ -96,6 +96,7 @@
             #binding-cells = <2>;
             tapping-term-ms = <200>;
         };
+
     };
 
     combos {
@@ -133,7 +134,7 @@
         default {
             bindings = <
 &q_esc ESC Q  &kp W        &kp E       &kp R        &kp T                                   &kp Y              &kp U         &kp I            &kp O        &kp P
-&hm LCTRL A  &hms LSHFT  S  &hm LALT D  &hm LGUI F   &kp G                                   &kp H              &hm LGUI J    &hm LALT K       &hm RCTRL L  &hms RSHFT SEMI
+&hms LSHFT A  &hm LCTRL S  &hm LALT D  &hm LGUI F   &kp G                                   &kp H              &hm LGUI J    &hm LALT K       &hm RCTRL L  &hms RSHFT SEMI
 &kp Z         &kp X        &kp C       &kp V        &kp B       &tog BT         &kp A       &kp N              &kp M         &kp COMMA        &kp DOT      &kp FSLH
                     &tog MOUSE        &kp TAB       &lt MUSIC SPACE                         &lt ANDROID ENTER  &lt NUM_NAV LG(LA(G))  &lt SYMB BACKSPACE
             >;
