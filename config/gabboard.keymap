@@ -101,7 +101,7 @@
     combos {
         compatible = "zmk,combos";
 
-        copy {
+ /*       copy {
             bindings = <&kp LG(C)>;
             key-positions = <12 13>;
         };
@@ -109,7 +109,7 @@
         paste {
             bindings = <&kp LG(V)>;
             key-positions = <13 14>;
-        };
+        };*/
 
         BT {
             bindings = <&tog BT>;
